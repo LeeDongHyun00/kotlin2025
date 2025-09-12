@@ -27,8 +27,33 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        week02Variables()
     }
 }
+
+fun week02Variables(){
+    println("Week02 Variables")
+
+    val courseName = "Mobile Programming"
+    // courseName = "Iot Programming" X 재할당 불가능
+    var week = 1
+    week = 2
+    //
+    println("Course : $courseName")
+    println("Week : $week")
+
+    val name : String = "Android"
+    var version : Double = 8.1
+    println("Hello $name $version")
+
+    val age : Int = 25
+    val height : Double = 180.0
+    val isStudent : Boolean = true
+
+    println("age: $age, height : $height, student : $isStudent")
+
+}
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
