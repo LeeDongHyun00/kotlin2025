@@ -29,9 +29,23 @@ class MainActivity : ComponentActivity() {
         }
         //week02Variables()
         //week02Functions()
-        week03Functions()
+        //week03Functions()
+        week03Collections()
     }
 }
+private fun week03Collections(){
+    Log.d("KotlinWeek03", "== Kotlin Collections ==")
+
+    val fruits = listOf("apple", "banana", "pear")
+    // fruits.add("kiwi") <= err
+    Log.d("KotlinWeek03", "Fruits : $fruits")
+
+    for(fruit in fruits){
+        Log.d("KotlinWeek03", "Fruits : $fruit")
+    }
+
+}
+
 private fun week04classes(){
     println("== Kotlin Classese ==")
 
