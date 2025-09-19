@@ -1,5 +1,6 @@
 package com.kotlinbasics
 
+import android.health.connect.datatypes.ExercisePerformanceGoal.WeightGoal
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -69,18 +70,29 @@ private fun week04classes(){
     person1.introduce()
     person1.birthday()
 
-    class Animal(var species : String){
+    // open으로 상속, override가능
+    open class Animal(var species : String){
         var weight : Double = 0.0
         constructor(species: String, weight: Double) : this(species){
             this.weight = weight
             Log.d("KotlinWeek03", "$species 's weight is $weight kg")
         }
-        fun makeSound(){
+        //  open 추가
+        open fun makeSound(){
             Log.d("KotlinWeek03", "$species makes noise")
         }
     }
     val puppy = Animal("강아지", 10)
     puppy.makeSound()
+
+    // open이 없으면 final 이기에 override안됨
+    class Dog(species : String, weight: Double, breed: String) : Animal(species, weight){
+        override fun makeSound(){
+            Log.d("KotlinWeek03", "$breed($species) makes noise")
+        }
+    }
+    val dog = Dog("개", 12.5, "시츄")
+    dog.makeSound()
 //    class Student{
 //        var name : String = ""
 //        var age : Int = 0
