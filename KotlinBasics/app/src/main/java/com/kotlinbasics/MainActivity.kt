@@ -36,41 +36,72 @@ class MainActivity : ComponentActivity() {
 private fun week03Collections(){
     Log.d("KotlinWeek03", "== Kotlin Collections ==")
 
+    // listOf, 수정가능한 mutalbleListOf, js 파이썬 딕셔너리 mapOf
     val fruits = listOf("apple", "banana", "pear")
+    val mutableFruits = mutableListOf("kiwi", "orange")
+    mutableFruits.add("banana")
+    val scores = mapOf("Kim" to 97, "Park" to 100, "Lee" to 12)
+
     // fruits.add("kiwi") <= err
     Log.d("KotlinWeek03", "Fruits : $fruits")
+    Log.d("KotlinWeek03", "mutableFruits : $mutableFruits")
+    Log.d("KotlinWeek03", "scores : $scores")
 
-    for(fruit in fruits){
+    for(fruit in mutableFruits){
         Log.d("KotlinWeek03", "Fruits : $fruit")
     }
-
+    scores.forEach{(name, score) -> Log.d("KotlinWeek03","$name scoresd $score")}
 }
 
 private fun week04classes(){
-    println("== Kotlin Classese ==")
+    Log.d("KotlinWeek03", "== Kotlin Classese ==")
 
-
-    class Student{
-        var name : String = ""
-        var age : Int = 0
-
-        fun introduce(name : String, age : Int){
-            println("Hi, my name is $name age is $age")
+    class Person(val name : String, var age : Int){
+        fun introduce(){
+            Log.d("KotlinWeek03", "Hi, i'm $name ($age)")
+        }
+        fun birthday() {
+            age++
+            Log.d("KotlinWeek03", "Today is $name 's birthday, now ($age)")
         }
     }
-    val student = Student()
-    student.name = "Lee"
-    student.age = 26
-    student.introduce()
+    val person1 = Person("Hong", 33)
+    person1.introduce()
+    person1.birthday()
 
-    // data class
-    data class Peson(val name : String, val age : int)
-
-    val person1 = Person(name="Kim",age=25)
-    val person2 = Person(name="Yang",age=24)
-    println("Person1 : $person1")
-    println("Person2 : $person2")
-    println("Equal? : ${person1 == person2}")
+    class Animal(var species : String){
+        var weight : Double = 0.0
+        constructor(species: String, weight: Double) : this(species){
+            this.weight = weight
+            Log.d("KotlinWeek03", "$species 's weight is $weight kg")
+        }
+        fun makeSound(){
+            Log.d("KotlinWeek03", "$species makes noise")
+        }
+    }
+    val puppy = Animal("강아지", 10)
+    puppy.makeSound()
+//    class Student{
+//        var name : String = ""
+//        var age : Int = 0
+//
+//        fun introduce(name : String, age : Int){
+//            println("Hi, my name is $name age is $age")
+//        }
+//    }
+//    val student = Student()
+//    student.name = "Lee"
+//    student.age = 26
+//    student.introduce()
+//
+//    // data class
+//    data class Peson(val name : String, val age : int)
+//
+//    val person1 = Person(name="Kim",age=25)
+//    val person2 = Person(name="Yang",age=24)
+//    println("Person1 : $person1")
+//    println("Person2 : $person2")
+//    println("Equal? : ${person1 == person2}")
 }
 
 private fun week02Functions(){
